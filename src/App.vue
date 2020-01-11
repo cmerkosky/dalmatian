@@ -29,7 +29,6 @@ export default {
     };
   },
   created() {
-    this.test();
     let params = new URLSearchParams(window.location.search.substring(1));
     this.authcode = params.get("code") 
     console.log(params.get("code"));
