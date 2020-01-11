@@ -6,6 +6,7 @@ html{
 
 body{
     height: 100%;
+    color: white;
 }
 
 #app{
@@ -68,3 +69,55 @@ body{
     color: #FFF;
     outline: 2px #FFF;
 }
+
+.controller-label{
+    display: block;
+}
+
+.input-slider{
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 50%; /* Specific width is required for Firefox. */
+    background: white; /* Otherwise white in Chrome */
+    height: 5px;
+}
+
+.input-slider::-ms-track{
+    width: 100%;
+    cursor: pointer;
+    height: 5px;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+
+.input-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 4px solid #1DB954;
+    height: 15px;
+    width: 15px;
+    border-radius: 14px;
+    background: #ffffff;
+    cursor: round;
+  }
+  
+  /* All the same stuff for Firefox */
+  .input-slider::-moz-range-thumb {
+    border: 4px solid #1DB954;
+    height: 15px;
+    width: 15px;
+    border-radius: 14px;
+    background: #ffffff;
+    cursor: round;
+  }
+  
+  /* All the same stuff for IE */
+  .input-slider::-ms-thumb {
+    border: 4px solid #1DB954;
+    height: 15px;
+    width: 15px;
+    border-radius: 14px;
+    background: #ffffff;
+    cursor: round;
+  }
