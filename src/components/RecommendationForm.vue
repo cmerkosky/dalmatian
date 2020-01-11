@@ -22,6 +22,7 @@
           <label for="valence" class="controller-label">Positivity</label><br>
           min <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" /> max
         </li>
+        <li><input @click="resetForm" type="button" value="reset" /><input type="submit" value="submit"></li>
       </ul>
     </form>
   </div>
@@ -42,8 +43,20 @@ export default {
   methods: {
     handleSubmit(event) {
       event.preventDefault();
-      this.$emit("formSubmit", {
+      this.$emit("formSubmit", { 
+        danceabilitiy: this.danceability,
+        energy: this.energy,
+        instrumentalness: this.instrumentalness,
+        popularity: this.popularity,
+        valence: this.valence, 
       });
+    },
+    resetForm() {
+      this.danceability = 0.5;
+      this.energy = 0.5;
+      this.instrumentalness = 0.5;
+      this.popularity = 50;
+      this.valence = 0.5;
     }
   }
 };
@@ -53,6 +66,9 @@ export default {
 <style scoped>
   form {
     color: white;
+  }
+  label {
+    font-weight: bold;
   }
   ul {
     list-style: none;

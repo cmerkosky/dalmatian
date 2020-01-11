@@ -4,7 +4,7 @@
       <li
         v-for="(recommendation, index) in recommendationResults"
         v-bind:key="index"
-      ></li>
+      >{{recommendation.name}}</li>
     </ul>
   </div>
 </template>

@@ -40,35 +40,53 @@ export default {
   data() {
     return {
       recommendationResults: [],
-      authcode: null
+      authcode: null,
+      seed: ''
     };
   },
   created() {
     let params = new URLSearchParams(window.location.hash.substring(1));
     this.authcode = params.get("access_token");
-    console.log(params.get("access_token"));
     axios({
       method: "get",
-      url: "https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK",
-      data: {
-        seed_artists: "4NHQUGzhtTLFvgF5SZesLK"
-      },
+      url: "https://api.spotify.com/v1/me/top/tracks?limit=5",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: "Bearer " + this.authcode
+        Authorization: "Bearer "+ this.authcode
       }
     })
-    .then(response => {
-      console.log(response.data)
-    })
-    .catch(e => {
-      console.log(e)
+    .then(response=>{
+      response.data.items.forEach(element => {
+        this.seed = this.seed + element.id + ','
+      });
+      this.seed = this.seed.substring(0,this.seed.length-1);
     })
   },
   methods: {
-    handleFormSubmit() {
-      
+    handleFormSubmit(data) {
+      console.log(data);
+      axios({
+        method: "get",
+        url: "https://api.spotify.com/v1/recommendations",
+        params: {
+          market: "US",
+          seed_tracks: this.seed,
+          ...data
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Bearer " + this.authcode
+        }
+      })
+      .then(response => {
+        console.log(response.data)
+        this.recommendationResults = response.data.tracks;
+      })
+      .catch(e => {
+        console.log(e)
+      })
     },
     authenticate(){
       window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080";
