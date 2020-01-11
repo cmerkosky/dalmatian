@@ -1,24 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <RecommendationForm @formSubmit="handleFormSubmit"></RecommendationForm>
+    <RecommendationList
+      :recommendationResults="recommendationResults"
+    ></RecommendationList>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import RecommendationForm from "./components/RecommendationForm.vue";
+import RecommendationList from "./components/RecommendationList.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    RecommendationForm,
+    RecommendationList
+  },
+  data() {
+    return {
+      recommendationResults: []
+    };
   },
   created() {
     this.test();
   },
   methods: {
+    handleFormSubmit(data) {
+      console.log(data);
+    },
     test() {
-      console.log('created!')
+      console.log("created!");
     }
   }
 };
@@ -29,8 +41,5 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
