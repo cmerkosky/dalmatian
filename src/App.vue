@@ -41,7 +41,7 @@ export default {
     return {
       recommendationResults: [],
       authcode: null,
-      seed: ''
+      seed: []
     };
   },
   created() {
@@ -57,22 +57,22 @@ export default {
       }
     })
     .then(response=>{
-      response.data.items.forEach(element => {
-        this.seed = this.seed + element.id + ','
-      });
-      this.seed = this.seed.substring(0,this.seed.length-1);
+      this.seed = response.data.items
     })
   },
   methods: {
-    handleFormSubmit(data) {
-      console.log(data);
+    handleFormSubmit(formData) {
+      console.log(formData);
+      console.log(this.seed);
       axios({
         method: "get",
         url: "https://api.spotify.com/v1/recommendations",
         params: {
           market: "US",
-          seed_tracks: this.seed,
-          ...data
+          seed_tracks: this.seed.reduce(function(tracks, element) {
+            return tracks + element.id + ','
+          }, ''),
+          ...formData,
         },
         headers: {
           "Content-Type": "application/json",
@@ -89,7 +89,7 @@ export default {
       })
     },
     authenticate(){
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080";
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read";
     }
   }
 };
