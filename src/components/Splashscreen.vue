@@ -1,0 +1,68 @@
+<template>
+  <div class="Splashscreen">
+    <div class="content">
+        <div class="splashscreen-text-container">
+            <h1 class="site-title">Dalmatian</h1>
+            <h3 class="site-subtitle">Your music, redefined</h3>
+            <button class="action-button">Enter</button>
+        </div>
+      </div>
+  </div>
+</template>
+
+<style scoped>
+.content {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+.splashscreen-text-container{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    color: #FFF;
+    text-transform: lowercase;
+}
+
+.site-title{
+    font-size: 64px;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.site-subtitle{
+    font-weight: 300;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.action-button{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 15px 32px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 16px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: lowercase;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.action-button:hover{
+    background-color: #000;
+    color: #FFF;
+    outline: 2px #FFF;
+}
+</style>
