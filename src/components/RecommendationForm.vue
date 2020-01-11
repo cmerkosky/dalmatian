@@ -2,8 +2,8 @@
   <div class="RecommendationForm">
     <form @submit="handleSubmit">
       <label>
-        Title:
-        <input v-model="title" />
+        Danceability: {{danceability}}
+        <input v-model="danceability" type="range" min="0" max="1" step="0.1" />
       </label>
     </form>
   </div>
@@ -14,7 +14,7 @@ export default {
   name: "RecommendationForm",
   data() {
     return {
-      title: ""
+      danceability: 0.5;
     };
   },
   methods: {
