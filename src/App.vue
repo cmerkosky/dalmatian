@@ -53,15 +53,15 @@ export default {
     })
   },
   methods: {
-    handleFormSubmit(data) {
-      console.log(data);
+    handleFormSubmit(formData) {
+      console.log(formData);
       axios({
         method: "get",
         url: "https://api.spotify.com/v1/recommendations",
         params: {
           market: "US",
           seed_artists: "4NHQUGzhtTLFvgF5SZesLK",
-          ...data
+          ...formData
         },
         headers: {
           "Content-Type": "application/json",
