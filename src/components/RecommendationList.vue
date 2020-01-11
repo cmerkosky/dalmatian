@@ -4,7 +4,7 @@
       <li
         v-for="(recommendation, index) in recommendationResults"
         v-bind:key="index"
-      >{{recommendation.name}}</li>
+      >{{recommendation.name}} by {{recommendation.artists[0].name}}</li>
     </ul>
   </div>
 </template>
@@ -14,6 +14,9 @@ export default {
   name: "RecommendationList",
   props: {
     recommendationResults: Array
+  },
+  created() {
+    console.log("results:", this.recommendationResults);
   }
 };
 </script>

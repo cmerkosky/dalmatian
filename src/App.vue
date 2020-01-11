@@ -41,7 +41,7 @@ export default {
     return {
       recommendationResults: [],
       authcode: null,
-      seed: ''
+      seed: []
     };
   },
   created() {
@@ -57,10 +57,7 @@ export default {
       }
     })
     .then(response=>{
-      response.data.items.forEach(element => {
-        this.seed = this.seed + element.id + ','
-      });
-      this.seed.substr(0,this.seed.length-1)
+      this.seed = response.data.items
     })
   },
   methods: {
@@ -72,9 +69,10 @@ export default {
         url: "https://api.spotify.com/v1/recommendations",
         params: {
           market: "US",
-          seed_tracks: this.seed,
-          ...formData
-
+          seed_tracks: this.seed.reduce(function(tracks, element) {
+            return tracks + element.id + ','
+          }, ''),
+          ...formData,
         },
         headers: {
           "Content-Type": "application/json",
