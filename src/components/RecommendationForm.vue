@@ -3,26 +3,59 @@
     <form @submit="handleSubmit">
       <ul>
         <li>
-          <label for="danceability" class="controller-label">Danceability</label><br>
-          min <input id="danceability" class="input-slider" v-model="danceability" type="range" min="0" max="1" step="0.01" /> max
+          <div class="input-block">
+            <label for="danceability" class="controller-label">Danceability</label>
+            <div class="slider-box">
+              <label for="danceability" class="end-label">Min</label>
+              <input id="danceability" class="input-slider" v-model="danceability" type="range" min="0" max="1" step="0.01" />
+              <label for="danceability" class="end-label">Max</label>
+            </div>
+          </div>
         </li>
+
         <li>
-          <label for="Energy" class="controller-label">Energy</label><br>
-          min <input id="energy" class="input-slider" v-model="energy" type="range" min="0" max="1" step="0.01" /> max
+          <div class="input-block">
+            <label for="energy" class="controller-label">energy</label>
+            <div class="slider-box">
+              <label for="energy" class="end-label">Min</label>
+              <input id="energy" class="input-slider" v-model="energy" type="range" min="0" max="1" step="0.01" />
+              <label for="energy" class="end-label">Max</label>
+            </div>
+          </div>
         </li>
+
         <li>
-          <label for="instrumentalness" class="controller-label">Instrumentalness</label><br>
-          min <input id="instrumentalness" class="input-slider" v-model="instrumentalness" type="range" min="0" max="1" step="0.01" /> max
+          <div class="input-block">
+            <label for="instrumentalness" class="controller-label">instrumentalness</label>
+            <div class="slider-box">
+              <label for="instrumentalness" class="end-label">Min</label>
+              <input id="instrumentalness" class="input-slider" v-model="instrumentalness" type="range" min="0" max="1" step="0.01" />
+              <label for="instrumentalness" class="end-label">Max</label>
+            </div>
+          </div>
         </li>
+
         <li>
-          <label for="popularity" class="controller-label">Popularity</label><br>
-          min <input id="popularity" class="input-slider" v-model="popularity" type="range" min="0" max="100" step="1" /> max
+          <div class="input-block">
+            <label for="popularity" class="controller-label">popularity</label>
+            <div class="slider-box">
+              <label for="popularity" class="end-label">Min</label>
+              <input id="popularity" class="input-slider" v-model="popularity" type="range" min="0" max="100" step="1" />
+              <label for="popularity" class="end-label">Max</label>
+            </div>
+          </div>
         </li>
+
         <li>
-          <label for="valence" class="controller-label">Positivity</label><br>
-          min <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" /> max
+          <div class="input-block">
+            <label for="valence" class="controller-label">valence</label>
+            <div class="slider-box">
+              <label for="valence" class="end-label">Min</label>
+              <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" />
+              <label for="valence" class="end-label">Max</label>
+            </div>
+          </div>
         </li>
-        <li><input @click="resetForm" type="button" value="reset" /><input type="submit" value="submit"></li>
       </ul>
     </form>
   </div>

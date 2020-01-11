@@ -18,11 +18,11 @@ body{
 }
 
 .left{
-    width: 66%;
+    width: 60%;
 }
 
 .right{
-    width: 33%;
+    width: 40%;
 }
 
 .main-content{
@@ -89,6 +89,19 @@ body{
 
 .controller-label{
     display: block;
+    width: 100%;
+}
+
+.slider-box{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    margin-right: 5px
+}
+
+.end-label{
+    display: flex;
+    margin-right: inherit
 }
 
 .input-slider{
@@ -96,6 +109,14 @@ body{
     width: 50%; /* Specific width is required for Firefox. */
     background: white; /* Otherwise white in Chrome */
     height: 5px;
+    display: flex;
+    flex: 1;
+    align-self: center;
+    margin-right: inherit;
+}
+
+.input-block{
+    width: 100%;
 }
 
 .input-slider::-ms-track{
@@ -133,5 +154,5 @@ body{
     height: 15px;
     width: 15px;
     border-radius: 14px;
-    background: #black;
+    background: black;
   }
