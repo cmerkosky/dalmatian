@@ -29,16 +29,16 @@ export default {
     };
   },
   created() {
-    let params = new URLSearchParams(window.location.search.substring(1));
-    this.authcode = params.get("code") 
-    console.log(params.get("code"));
+    let params = new URLSearchParams(window.location.hash.substring(1));
+    this.authcode = params.get("access_token") 
+    console.log(params.get("access_token"));
   },
   methods: {
     handleFormSubmit() {
       window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
     },
     authenticate(){
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080";
     }
   }
 };
