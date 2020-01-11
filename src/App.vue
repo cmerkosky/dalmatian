@@ -12,6 +12,14 @@ export default {
   name: "app",
   components: {
     HelloWorld
+  },
+  created() {
+    this.test();
+  },
+  methods: {
+    test() {
+      console.log('created!')
+    }
   }
 };
 </script>
