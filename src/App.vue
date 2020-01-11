@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleFormSubmit() {
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
+      
     },
     authenticate(){
       window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
