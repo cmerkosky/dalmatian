@@ -14,7 +14,7 @@ export default {
   name: "RecommendationForm",
   data() {
     return {
-      danceability: 0.5;
+      danceability: 0.5
     };
   },
   methods: {
