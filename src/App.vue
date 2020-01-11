@@ -1,12 +1,26 @@
 <template>
-  <div id="app">
+  <div id="app" class="main-content">
     <Splashscreen v-if="!authcode" @authenticate="authenticate"></Splashscreen>
-    <RecommendationForm v-if="authcode" @formSubmit="handleFormSubmit">
-    </RecommendationForm>
-    <RecommendationList
-      v-if="authcode"
-      :recommendationResults="recommendationResults"
-    ></RecommendationList>
+    <div v-else class="app-area">
+      <div v-if="authcode" class="header-bar">
+        <header>
+          <h1>Dalmation</h1>
+        </header>
+      </div>
+      <div class="body-area">
+        <div class="row">
+          <div class="column left">
+            <RecommendationForm @formSubmit="handleFormSubmit">
+            </RecommendationForm>
+          </div>
+          <div class="column right">
+            <RecommendationList
+              :recommendationResults="recommendationResults"
+            ></RecommendationList>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
