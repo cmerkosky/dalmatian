@@ -60,7 +60,7 @@ export default {
       response.data.items.forEach(element => {
         this.seed = this.seed + element.id + ','
       });
-      this.seed = this.seed.substring(0,this.seed.length-1);
+      this.seed.substr(0,this.seed.length-1)
     })
   },
   methods: {
@@ -89,7 +89,7 @@ export default {
       })
     },
     authenticate(){
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080";
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read";
     }
   }
 };
