@@ -32,11 +32,13 @@ export default {
     this.test();
   },
   methods: {
-    handleFormSubmit(data) {
-      console.log(data);
+    handleFormSubmit() {
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
+
     },
     test() {
-      console.log("created!");
+      let params = new URLSearchParams(window.location.search.substring(1));
+      console.log(params.get("code"));
     }
   }
 };
