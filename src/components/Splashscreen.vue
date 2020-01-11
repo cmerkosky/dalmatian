@@ -4,11 +4,21 @@
         <div class="splashscreen-text-container">
             <h1 class="site-title">Dalmatian</h1>
             <h3 class="site-subtitle">Your music, redefined</h3>
-            <button class="action-button">Enter</button>
+            <button @click="handleButtonClick" class="action-button">Enter</button>
         </div>
       </div>
   </div>
 </template>
+
+<script>
+export default {
+    methods:{
+        handleButtonClick(){
+            this.$emit("authenticate")
+        }
+    }
+}
+</script>
 
 <style scoped>
 .content {

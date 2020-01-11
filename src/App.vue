@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Splashscreen v-if="!authenticated"></Splashscreen>
-    <RecommendationForm v-if="authenticated" @formSubmit="handleFormSubmit">
+    <Splashscreen v-if="!authcode" @authenticate="authenticate"></Splashscreen>
+    <RecommendationForm v-if="authcode" @formSubmit="handleFormSubmit">
     </RecommendationForm>
     <RecommendationList
-      v-if="authenticated"
+      v-if="authcode"
       :recommendationResults="recommendationResults"
     ></RecommendationList>
   </div>
@@ -25,20 +25,21 @@ export default {
   data() {
     return {
       recommendationResults: [],
-      authenticated: false
+      authcode: null
     };
   },
   created() {
     this.test();
+    let params = new URLSearchParams(window.location.search.substring(1));
+    this.authcode = params.get("code") 
+    console.log(params.get("code"));
   },
   methods: {
     handleFormSubmit() {
       window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
-
     },
-    test() {
-      let params = new URLSearchParams(window.location.search.substring(1));
-      console.log(params.get("code"));
+    authenticate(){
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=code&redirect_uri=http://localhost:8080";
     }
   }
 };
