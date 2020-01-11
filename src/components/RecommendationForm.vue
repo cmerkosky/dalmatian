@@ -1,10 +1,28 @@
 <template>
   <div class="RecommendationForm">
     <form @submit="handleSubmit">
-      <label>
-        Danceability: {{danceability}}
-        <input v-model="danceability" type="range" min="0" max="1" step="0.1" />
-      </label>
+      <ul>
+        <li>
+          <label for="danceability">Danceability</label><br>
+          min <input id="danceability" v-model="danceability" type="range" min="0" max="1" step="0.1" /> max
+        </li>
+        <li>
+          <label for="Energy">Energy</label><br>
+          min <input id="energy" v-model="energy" type="range" min="0" max="1" step="0.1" /> max
+        </li>
+        <li>
+          <label for="instrumentalness">Instrumentalness</label><br>
+          min <input id="instrumentalness" v-model="instrumentalness" type="range" min="0" max="1" step="0.1" /> max
+        </li>
+        <li>
+          <label for="popularity">Popularity</label><br>
+          min <input id="popularity" v-model="popularity" type="range" min="0" max="100" step="10" /> max
+        </li>
+        <li>
+          <label for="valence">Positivity</label><br>
+          min <input id="valence" v-model="valence" type="range" min="0" max="1" step="0.1" /> max
+        </li>
+      </ul>
     </form>
   </div>
 </template>
@@ -14,7 +32,11 @@ export default {
   name: "RecommendationForm",
   data() {
     return {
-      danceability: 0.5;
+      danceability: 0.5,
+      energy: 0.5,
+      instrumentalness: 0.5,
+      popularity: 50,
+      valence: 0.5,
     };
   },
   methods: {
@@ -28,4 +50,14 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  form {
+    color: white;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    margin: 1rem 0;
+  }
+</style>
