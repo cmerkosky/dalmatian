@@ -54,7 +54,24 @@ export default {
   },
   methods: {
     handleFormSubmit() {
-      
+      axios({
+        method: "get",
+        url: "https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK",
+        data: {
+          seed_artists: "4NHQUGzhtTLFvgF5SZesLK"
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Bearer " + this.authcode
+        }
+      })
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
     },
     authenticate(){
       window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080";

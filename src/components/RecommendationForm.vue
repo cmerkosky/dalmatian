@@ -54,6 +54,9 @@ export default {
   form {
     color: white;
   }
+  label {
+    font-weight: bold;
+  }
   ul {
     list-style: none;
   }
