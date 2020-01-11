@@ -53,12 +53,15 @@ export default {
     })
   },
   methods: {
-    handleFormSubmit() {
+    handleFormSubmit(data) {
+      console.log(data);
       axios({
         method: "get",
-        url: "https://api.spotify.com/v1/recommendations?market=US&seed_artists=4NHQUGzhtTLFvgF5SZesLK",
-        data: {
-          seed_artists: "4NHQUGzhtTLFvgF5SZesLK"
+        url: "https://api.spotify.com/v1/recommendations",
+        params: {
+          market: "US",
+          seed_artists: "4NHQUGzhtTLFvgF5SZesLK",
+          ...data
         },
         headers: {
           "Content-Type": "application/json",
@@ -68,6 +71,7 @@ export default {
       })
       .then(response => {
         console.log(response.data)
+        this.recommendationResults = response.data.tracks;
       })
       .catch(e => {
         console.log(e)
