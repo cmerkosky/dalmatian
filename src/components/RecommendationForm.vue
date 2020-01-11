@@ -3,24 +3,24 @@
     <form @submit="handleSubmit">
       <ul>
         <li>
-          <label for="danceability">Danceability</label><br>
-          min <input id="danceability" v-model="danceability" type="range" min="0" max="1" step="0.1" /> max
+          <label for="danceability" class="controller-label">Danceability</label><br>
+          min <input id="danceability" class="input-slider" v-model="danceability" type="range" min="0" max="1" step="0.01" /> max
         </li>
         <li>
-          <label for="Energy">Energy</label><br>
-          min <input id="energy" v-model="energy" type="range" min="0" max="1" step="0.1" /> max
+          <label for="Energy" class="controller-label">Energy</label><br>
+          min <input id="energy" class="input-slider" v-model="energy" type="range" min="0" max="1" step="0.01" /> max
         </li>
         <li>
-          <label for="instrumentalness">Instrumentalness</label><br>
-          min <input id="instrumentalness" v-model="instrumentalness" type="range" min="0" max="1" step="0.1" /> max
+          <label for="instrumentalness" class="controller-label">Instrumentalness</label><br>
+          min <input id="instrumentalness" class="input-slider" v-model="instrumentalness" type="range" min="0" max="1" step="0.01" /> max
         </li>
         <li>
-          <label for="popularity">Popularity</label><br>
-          min <input id="popularity" v-model="popularity" type="range" min="0" max="100" step="10" /> max
+          <label for="popularity" class="controller-label">Popularity</label><br>
+          min <input id="popularity" class="input-slider" v-model="popularity" type="range" min="0" max="100" step="1" /> max
         </li>
         <li>
-          <label for="valence">Positivity</label><br>
-          min <input id="valence" v-model="valence" type="range" min="0" max="1" step="0.1" /> max
+          <label for="valence" class="controller-label">Positivity</label><br>
+          min <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" /> max
         </li>
       </ul>
     </form>
