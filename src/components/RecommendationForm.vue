@@ -1,9 +1,9 @@
 <template>
   <div class="RecommendationForm">
     <form @submit="handleSubmit">
-      <label>
-        Danceability: {{danceability}}
-        <input v-model="danceability" type="range" min="0" max="1" step="0.1" />
+      <label class="controller-label">
+        Danceability
+        <input v-model="danceability" type="range" min="0" max="1" step="0.01" class="input-slider" />
       </label>
     </form>
   </div>
@@ -14,7 +14,7 @@ export default {
   name: "RecommendationForm",
   data() {
     return {
-      danceability: 0.5;
+      danceability: 0.5
     };
   },
   methods: {
