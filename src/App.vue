@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <RecommendationForm @formSubmit="handleFormSubmit"></RecommendationForm>
+    <Splashscreen v-if="!authenticated"></Splashscreen>
+    <RecommendationForm v-if="authenticated" @formSubmit="handleFormSubmit">
+    </RecommendationForm>
     <RecommendationList
+      v-if="authenticated"
       :recommendationResults="recommendationResults"
     ></RecommendationList>
   </div>
@@ -10,16 +13,19 @@
 <script>
 import RecommendationForm from "./components/RecommendationForm.vue";
 import RecommendationList from "./components/RecommendationList.vue";
+import Splashscreen from "./components/Splashscreen.vue";
 
 export default {
   name: "app",
   components: {
     RecommendationForm,
-    RecommendationList
+    RecommendationList,
+    Splashscreen
   },
   data() {
     return {
-      recommendationResults: []
+      recommendationResults: [],
+      authenticated: false
     };
   },
   created() {

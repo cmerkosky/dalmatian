@@ -21,7 +21,6 @@ export default {
     handleSubmit(event) {
       event.preventDefault();
       this.$emit("formSubmit", {
-        
       });
     }
   }
