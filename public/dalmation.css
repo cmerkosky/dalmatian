@@ -102,13 +102,15 @@ body{
     background: #111;
     padding: 1rem;
     height: 100%;
+    padding-top: 0px;
 }
 
 .control-list{
     list-style: none;
     padding-left: 0px; 
     height: 70vh;
-    overflow-y: scroll; 
+    overflow-y: scroll;
+    margin-top: 0px;
 }
 
 .song-list {
