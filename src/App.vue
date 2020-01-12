@@ -16,6 +16,7 @@
           <div v-if="recommendationResults.length > 0" class="column column-right ui-section">
             <RecommendationList
               :recommendationResults="recommendationResults"
+              @createPlaylist="createPlaylist"
             ></RecommendationList>
           </div>
         </div>
@@ -41,12 +42,26 @@ export default {
     return {
       recommendationResults: [],
       authcode: null,
-      seed: []
+      seed: [],
+      user: null
     };
   },
   created() {
     let params = new URLSearchParams(window.location.hash.substring(1));
     this.authcode = params.get("access_token");
+    axios({
+      method: "get",
+      url: "https://api.spotify.com/v1/me",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + this.authcode
+      }
+    })
+    .then(response=>{
+      this.user = response.data
+      console.log(this.user)
+    })
     axios({
       method: "get",
       url: "https://api.spotify.com/v1/me/top/tracks?limit=5",
@@ -88,8 +103,40 @@ export default {
         console.log(e)
       })
     },
+    createPlaylist() {
+      axios({
+        method: "post",
+        url: "https://api.spotify.com/v1/users/" + this.user.id + "/playlists",
+        headers: {
+          Authorization: "Bearer " + this.authcode,
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        data: {
+          name: "Dalmation playlist"
+        }
+      })
+      .then(response=>{
+        axios({
+          method: "post",
+          url: "https://api.spotify.com/v1/playlists/" + response.data.id +"/tracks",
+          headers: {
+            Authorization: "Bearer " + this.authcode,
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          data: {
+            "uris": this.recommendationResults.map(result => "spotify:track:"+result.id)
+          }
+        })
+        .then(()=>{
+          console.log(response)
+          window.open(response.data.external_urls.spotify, "_blank")
+        })
+      })
+    },
     authenticate(){
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read";
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read%20playlist-modify-public";
     }
   }
 };
