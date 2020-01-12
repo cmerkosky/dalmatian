@@ -1,6 +1,6 @@
 <template>
   <div class="RecommendationList">
-    <ul class="control-list">
+    <ul class="song-list">
       <li
         v-for="(recommendation, index) in recommendationResults"
         v-bind:key="index">

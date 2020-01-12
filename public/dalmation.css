@@ -83,19 +83,36 @@ body{
 
 .column-row{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .column-left{
-    width: 60%;
+    flex-grow: 1;
+    min-width: 250px;
+    margin: 0.5rem;
 }
 
 .column-right{
-    width: 40%;
+    min-width: 250px;
+    flex-grow: 1;
+    margin: 0.5rem;
+}
+
+.ui-section {
+    background: #111;
+    padding: 1rem;
 }
 
 .control-list{
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0px; 
+}
+
+.song-list {
+    list-style: none;
+    padding-left: 0px; 
+    height: 70vh;
+    overflow: scroll; 
 }
 
 .input-block{
@@ -264,4 +281,16 @@ body{
 
   .song-item:hover .play-button{
     opacity: 1;
+  }
+
+  @media only screen and (max-width: 420px) {
+    .content-area,
+    .body-area,
+    h1 {
+      margin: 0;
+    }
+
+    .header-bar {
+        padding: 1rem;
+    }
   }
