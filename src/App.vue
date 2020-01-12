@@ -117,11 +117,25 @@ export default {
         }
       })
       .then(response=>{
-        console.log(response)
+        axios({
+          method: "post",
+          url: "https://api.spotify.com/v1/playlists/" + response.data.id +"/tracks",
+          headers: {
+            Authorization: "Bearer " + this.authcode,
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          data: {
+            "uris": this.recommendationResults.map(result => "spotify:track:"+result.id)
+          }
+        })
+        .then(response2=>{
+          window.open(response.data.external_urls.spotify, "_blank")
+        })
       })
     },
     authenticate(){
-      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read%20playlist-modify-private";
+      window.location = "https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=http://localhost:8080&scope=user-top-read%20playlist-modify-public";
     }
   }
 };
