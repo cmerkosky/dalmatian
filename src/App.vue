@@ -9,11 +9,11 @@
       </div>
       <div class="body-area">
         <div class="column-row">
-          <div class="column column-left">
+          <div class="column column-left ui-section">
             <RecommendationForm @formSubmit="handleFormSubmit">
             </RecommendationForm>
           </div>
-          <div class="column column-right">
+          <div v-if="recommendationResults.length > 0" class="column column-right ui-section">
             <RecommendationList
               :recommendationResults="recommendationResults"
             ></RecommendationList>

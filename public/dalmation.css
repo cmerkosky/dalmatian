@@ -55,7 +55,7 @@ body{
 }
 
 .action-button{
-    margin: inherit;
+    margin: 0.5rem;
     padding: 15px 32px;
     border-radius: 30px;
 
@@ -71,6 +71,8 @@ body{
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+
+    cursor: pointer;
 }
 
 .action-button:hover{
@@ -81,19 +83,44 @@ body{
 
 .column-row{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .column-left{
-    width: 60%;
+    flex-grow: 1;
+    min-width: 250px;
+    margin: 0.5rem;
 }
 
 .column-right{
-    width: 40%;
+    min-width: 250px;
+    flex-grow: 1;
+    margin: 0.5rem;
+}
+
+.ui-section {
+    background: #111;
+    padding: 1rem;
 }
 
 .control-list{
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0px; 
+}
+
+.song-list {
+    list-style: none;
+    padding-left: 0px; 
+    height: 90vh;
+    overflow-y: scroll; 
+}
+
+.song-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+  background: #1DB954;
 }
 
 .input-block{
@@ -272,3 +299,18 @@ body{
 .checkbox{
   margin: auto 10px auto 0px;
 }
+  .song-item:hover .play-button{
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 420px) {
+    .content-area,
+    .body-area,
+    h1 {
+      margin: 0;
+    }
+
+    .header-bar {
+        padding: 1rem;
+    }
+  }
