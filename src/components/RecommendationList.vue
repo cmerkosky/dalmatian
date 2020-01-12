@@ -3,15 +3,23 @@
     <ul>
       <li
         v-for="(recommendation, index) in recommendationResults"
-        v-bind:key="index"
-      >{{recommendation.name}} by {{recommendation.artists[0].name}}</li>
+        v-bind:key="index">
+      <Song
+        v-if="recommendation"
+        :songInfo="recommendation">
+      </Song>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import Song from "./Song.vue"
 export default {
   name: "RecommendationList",
+  components: {
+    Song
+  },
   props: {
     recommendationResults: Array
   },

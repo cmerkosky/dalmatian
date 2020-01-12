@@ -164,3 +164,8 @@ body{
     border-radius: 14px;
     background: black;
   }
+
+  pre {
+    white-space: pre-line;
+    margin: 20px;
+}
