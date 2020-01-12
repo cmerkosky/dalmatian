@@ -111,8 +111,16 @@ body{
 .song-list {
     list-style: none;
     padding-left: 0px; 
-    height: 70vh;
-    overflow: scroll; 
+    height: 90vh;
+    overflow-y: scroll; 
+}
+
+.song-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+  background: #1DB954;
 }
 
 .input-block{
