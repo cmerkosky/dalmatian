@@ -111,6 +111,14 @@ body{
     overflow-y: scroll; 
 }
 
+.control-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.control-list::-webkit-scrollbar-thumb {
+  background: #1DB954;
+}
+
 .song-list {
     list-style: none;
     padding-left: 0px; 

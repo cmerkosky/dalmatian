@@ -143,7 +143,7 @@ export default {
       })
     },
     authenticate(){
-      let redirectUri = window.location.href.includes("localhost") ? "http://localhost:8080" : "dalmation.netlify.com"
+      let redirectUri = window.location.href.includes("localhost") ? "http://localhost:8080" : "http://dalmation.netlify.com"
       window.location = `https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read%20playlist-modify-public`;
     }
   }
