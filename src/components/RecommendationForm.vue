@@ -4,7 +4,8 @@
       <ul class=control-list>
         <li>
           <div class="input-block">
-            <label for="danceability" class="controller-label">Danceability</label>
+            <input type="checkbox" id="danceability-checkbox" v-model="danceabilityChecked" class="checkbox"/>
+            <label for="danceability-checkbox" class="controller-label">Danceability</label>
             <div class="slider-box">
               <label for="danceability" class="end-label">Min</label>
               <input id="danceability" class="input-slider" v-model="danceability" type="range" min="0" max="1" step="0.01" />
@@ -15,7 +16,8 @@
 
         <li>
           <div class="input-block">
-            <label for="energy" class="controller-label">energy</label>
+            <input type="checkbox" id="energy-checkbox" v-model="energyChecked" class="checkbox"/>
+            <label for="energy-checkbox" class="controller-label">energy</label>
             <div class="slider-box">
               <label for="energy" class="end-label">Min</label>
               <input id="energy" class="input-slider" v-model="energy" type="range" min="0" max="1" step="0.01" />
@@ -26,7 +28,8 @@
 
         <li>
           <div class="input-block">
-            <label for="instrumentalness" class="controller-label">instrumentalness</label>
+            <input type="checkbox" id="instrumentalness-checkbox" v-model="instrumentalnessChecked" class="checkbox"/>
+            <label for="instrumentalness-checkbox" class="controller-label">instrumentalness</label>
             <div class="slider-box">
               <label for="instrumentalness" class="end-label">Min</label>
               <input id="instrumentalness" class="input-slider" v-model="instrumentalness" type="range" min="0" max="1" step="0.01" />
@@ -37,7 +40,8 @@
 
         <li>
           <div class="input-block">
-            <label for="popularity" class="controller-label">popularity</label>
+            <input type="checkbox" id="popularity-checkbox" v-model="popularityChecked" class="checkbox"/>
+            <label for="popularity-checkbox" class="controller-label">popularity</label>
             <div class="slider-box">
               <label for="popularity" class="end-label">Min</label>
               <input id="popularity" class="input-slider" v-model="popularity" type="range" min="0" max="100" step="1" />
@@ -48,7 +52,8 @@
 
         <li>
           <div class="input-block">
-            <label for="valence" class="controller-label">happiness</label>
+            <input type="checkbox" id="valence-checkbox" v-model="valenceChecked" class="checkbox"/>
+            <label for="valence-checkbox" class="controller-label">happiness</label>
             <div class="slider-box">
               <label for="valence" class="end-label">Min</label>
               <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" />
@@ -59,18 +64,20 @@
 
         <li>
           <div class="input-block">
-            <label for="acousticness" class="controller-label">acousticness</label>
+            <input type="checkbox" id="acousticness-checkbox" v-model="acousticnessChecked" class="checkbox"/>
+            <label for="acousticness-checkbox" class="controller-label">acousticness</label>
             <div class="slider-box">
               <label for="acousticness" class="end-label">Min</label>
-              <input id="acouisticness" class="input-slider" v-model="acouisticness" type="range" min="0" max="1" step="0.01" />
-              <label for="acouisticness" class="end-label">Max</label>
+              <input id="acousticness" class="input-slider" v-model="acousticness" type="range" min="0" max="1" step="0.01" />
+              <label for="acousticness" class="end-label">Max</label>
             </div>
           </div>
         </li>
 
         <li>
           <div class="input-block">
-            <label for="liveness" class="controller-label">liveness</label>
+            <input type="checkbox" id="liveness-checkbox" v-model="livenessChecked" class="checkbox"/>
+            <label for="liveness-checkbox" class="controller-label">liveness</label>
             <div class="slider-box">
               <label for="liveness" class="end-label">Min</label>
               <input id="liveness" class="input-slider" v-model="liveness" type="range" min="0" max="1" step="0.01" />
@@ -81,7 +88,8 @@
 
         <li>
           <div class="input-block">
-            <label for="loudness" class="controller-label">loudness</label>
+            <input type="checkbox" id="loudness-checkbox" v-model="loudnessChecked" class="checkbox"/>
+            <label for="loudness-checkbox" class="controller-label">loudness</label>
             <div class="slider-box">
               <label for="loudness" class="end-label">Min</label>
               <input id="loudness" class="input-slider" v-model="loudness" type="range" min="-60" max="0" step="0.1" />
@@ -106,24 +114,23 @@ export default {
       instrumentalness: 0.5,
       popularity: 50,
       valence: 0.5,
+      acousticness: 0.5,
       liveness: 0.5,
       loudness: -30,
-      acousticness: 0.5,
+      danceabilityChecked: true,
+      energyChecked: true,
+      instrumentalnessChecked: true,
+      popularityChecked: true,
+      valenceChecked: true,
+      acousticnessChecked: true,
+      livenessChecked: true,
+      loudnessChecked: true,
     };
   },
   methods: {
     handleSubmit(event) {
       event.preventDefault();
-      this.$emit("formSubmit", { 
-        target_danceability: this.danceability,
-        target_energy: this.energy,
-        target_instrumentalness: this.instrumentalness,
-        target_popularity: this.popularity,
-        target_valence: this.valence,
-        target_loudness: this.loudness,
-        target_liveness: this.liveness,
-        target_acousticness: this.acousticness,
-      });
+      this.$emit("formSubmit", this.buildFormData());
     },
     resetForm() {
       this.danceability = 0.5;
@@ -131,9 +138,45 @@ export default {
       this.instrumentalness = 0.5;
       this.popularity = 50;
       this.valence = 0.5;
-      this.loudness = -30;
       this.acousticness = 0.5;
+      this.loudness = -30;
       this.liveness = 0.5;
+      this.danceabilityChecked = true;
+      this.energyChecked = true;
+      this.instrumentalnessChecked = true;
+      this.popularityChecked = true;
+      this.valenceChecked = true;
+      this.acousticnessChecked = true;
+      this.livenessChecked = true;
+      this.loudnessChecked = true;
+    },
+    buildFormData(){
+      let data = {}
+      if(this.danceabilityChecked){
+        data.target_danceability = this.danceability
+      }
+      if(this.energyChecked){
+        data.target_energy = this.energy
+      }
+      if(this.instrumentalnessChecked){
+        data.target_instrumentalness = this.instrumentalness
+      }
+      if(this.popularityChecked){
+        data.target_popularity = this.popularity
+      }
+      if(this.valenceChecked){
+        data.target_valence = this.valence
+      }
+      if(this.acousticnessChecked){
+        data.target_acousticness = this.acousticness
+      }
+      if(this.livenessChecked){
+        data.target_liveness = this.liveness
+      }
+      if(this.loudnessChecked){
+        data.target_loudness = this.loudness
+      }
+      return data
     }
   }
 };
