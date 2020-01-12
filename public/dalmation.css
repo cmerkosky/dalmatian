@@ -15,6 +15,10 @@ body{
     height: 100%;
 }
 
+.header-text {
+    cursor: pointer;
+}
+
 .content-area{
     margin: 20px;
 }
@@ -111,6 +115,14 @@ body{
     height: 70vh;
     overflow-y: scroll;
     margin-top: 0px;
+}
+
+.control-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.control-list::-webkit-scrollbar-thumb {
+  background: #1DB954;
 }
 
 .song-list {
