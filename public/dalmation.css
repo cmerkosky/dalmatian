@@ -107,12 +107,13 @@ body{
 .control-list{
     list-style: none;
     padding-left: 0px; 
+    height: 70vh;
 }
 
 .song-list {
     list-style: none;
     padding-left: 0px; 
-    height: 78vh;
+    height: 70vh;
     overflow-y: scroll; 
 }
 
