@@ -56,6 +56,39 @@
             </div>
           </div>
         </li>
+
+        <li>
+          <div class="input-block">
+            <label for="acousticness" class="controller-label">acousticness</label>
+            <div class="slider-box">
+              <label for="acousticness" class="end-label">Min</label>
+              <input id="acouisticness" class="input-slider" v-model="acouisticness" type="range" min="0" max="1" step="0.01" />
+              <label for="acouisticness" class="end-label">Max</label>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="input-block">
+            <label for="liveness" class="controller-label">liveness</label>
+            <div class="slider-box">
+              <label for="liveness" class="end-label">Min</label>
+              <input id="liveness" class="input-slider" v-model="liveness" type="range" min="0" max="1" step="0.01" />
+              <label for="liveness" class="end-label">Max</label>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="input-block">
+            <label for="loudness" class="controller-label">loudness</label>
+            <div class="slider-box">
+              <label for="loudness" class="end-label">Min</label>
+              <input id="loudness" class="input-slider" v-model="loudness" type="range" min="-60" max="0" step="0.1" />
+              <label for="loudness" class="end-label">Max</label>
+            </div>
+          </div>
+        </li>
       </ul>
     </form>
     <button action="submit" form="recommendation-form" class="action-button" style="margin-right: 10px">Hit it</button>
@@ -73,6 +106,9 @@ export default {
       instrumentalness: 0.5,
       popularity: 50,
       valence: 0.5,
+      liveness: 0.5,
+      loudness: -30,
+      acousticness: 0.5,
     };
   },
   methods: {
@@ -83,7 +119,10 @@ export default {
         target_energy: this.energy,
         target_instrumentalness: this.instrumentalness,
         target_popularity: this.popularity,
-        target_valence: this.valence, 
+        target_valence: this.valence,
+        target_loudness: this.loudness,
+        target_liveness: this.liveness,
+        target_acousticness: this.acousticness,
       });
     },
     resetForm() {
@@ -92,6 +131,9 @@ export default {
       this.instrumentalness = 0.5;
       this.popularity = 50;
       this.valence = 0.5;
+      this.loudness = -30;
+      this.acousticness = 0.5;
+      this.liveness = 0.5;
     }
   }
 };
