@@ -16,11 +16,11 @@ body{
 }
 
 .content-area{
-    margin: 30px;
+    margin: 20px;
 }
 
 .body-area{
-    margin: 30px;
+    margin: 20px;
 }
 
 .splashscreen-content {
@@ -87,20 +87,21 @@ body{
 }
 
 .column-left{
-    flex-grow: 1;
+    flex: 1;
     min-width: 250px;
     margin: 0.5rem;
 }
 
 .column-right{
     min-width: 250px;
-    flex-grow: 1;
+    flex: 1;
     margin: 0.5rem;
 }
 
 .ui-section {
     background: #111;
     padding: 1rem;
+    height: 100%;
 }
 
 .control-list{
@@ -287,6 +288,9 @@ body{
 
 .checkbox:not(:checked) ~ *{
   opacity: 0.4;
+}
+
+.checkbox:not(:checked) ~ div{
   pointer-events: none;
 }
 
@@ -312,5 +316,11 @@ body{
 
     .header-bar {
         padding: 1rem;
+    }
+
+    .action-button{
+      display: flex;
+      margin: 10px auto;
+      flex: 1
     }
   }
