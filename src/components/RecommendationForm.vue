@@ -131,6 +131,7 @@ export default {
     handleSubmit(event) {
       event.preventDefault();
       this.$emit("formSubmit", this.buildFormData());
+      window.scrollTo(0,document.body.scrollHeight);
     },
     resetForm() {
       this.danceability = 0.5;
