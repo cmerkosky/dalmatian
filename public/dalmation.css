@@ -55,7 +55,7 @@ body{
 }
 
 .action-button{
-    margin: inherit;
+    margin: 0.5rem;
     padding: 15px 32px;
     border-radius: 30px;
 

@@ -91,7 +91,7 @@
         </li>
       </ul>
     </form>
-    <button action="submit" form="recommendation-form" class="action-button" style="margin-right: 10px">Hit it</button>
+    <button action="submit" form="recommendation-form" class="action-button">Hit it</button>
     <button @click='resetForm' class="action-button">Reset</button>
   </div>
 </template>

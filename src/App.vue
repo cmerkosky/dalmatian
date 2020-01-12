@@ -13,7 +13,7 @@
             <RecommendationForm @formSubmit="handleFormSubmit">
             </RecommendationForm>
           </div>
-          <div class="column column-right ui-section">
+          <div v-if="recommendationResults.length > 0" class="column column-right ui-section">
             <RecommendationList
               :recommendationResults="recommendationResults"
             ></RecommendationList>
