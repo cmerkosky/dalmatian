@@ -19,6 +19,7 @@
         </div>
       </li>
     </ul>
+    <button @click="createPlaylist" class="action-button">Create Playlist</button>
   </div>
 </template>
 
@@ -30,6 +31,11 @@ export default {
   },
   created() {
     console.log("results:", this.recommendationResults);
+  },
+  methods: {
+    createPlaylist() {
+      this.$emit("createPlaylist")
+    }
   }
 };
 </script>
