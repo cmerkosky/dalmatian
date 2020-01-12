@@ -4,7 +4,7 @@
     <div v-else class="app-area">
       <div v-if="authcode" class="header-bar">
         <header @click="logout">
-          <h1>Dalmation</h1>
+          <h1><span class="header-text">Dalmation</span></h1>
         </header>
       </div>
       <div class="body-area">
@@ -143,7 +143,7 @@ export default {
       })
     },
     authenticate(){
-      let redirectUri = window.location.href.includes("localhost") ? "http://localhost:8080" : "http://dalmation.netlify.com"
+      let redirectUri = window.location.href.includes("localhost") ? "http://localhost:8080" : "https://dalmation.netlify.com"
       window.location = `https://accounts.spotify.com/authorize?client_id=86a64fb12bc24841abd7312b1a462795&response_type=token&redirect_uri=${redirectUri}&scope=user-top-read%20playlist-modify-public`;
     }
   }
