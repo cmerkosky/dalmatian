@@ -117,6 +117,7 @@ body{
 
 .control-list::-webkit-scrollbar {
   width: 6px;
+  padding-top: 5px;
 }
 
 .control-list::-webkit-scrollbar-thumb {
