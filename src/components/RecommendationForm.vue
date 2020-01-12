@@ -1,7 +1,7 @@
 <template>
   <div class="RecommendationForm">
     <form @submit="handleSubmit">
-      <ul>
+      <ul class=control-list>
         <li>
           <div class="input-block">
             <label for="danceability" class="controller-label">Danceability</label>
@@ -48,7 +48,7 @@
 
         <li>
           <div class="input-block">
-            <label for="valence" class="controller-label">valence</label>
+            <label for="valence" class="controller-label">happiness</label>
             <div class="slider-box">
               <label for="valence" class="end-label">Min</label>
               <input id="valence" class="input-slider" v-model="valence" type="range" min="0" max="1" step="0.01" />
@@ -57,6 +57,7 @@
           </div>
         </li>
       </ul>
+      <button action="submit" class="action-button">Hit it</button>
     </form>
   </div>
 </template>

@@ -8,12 +8,12 @@
         </header>
       </div>
       <div class="body-area">
-        <div class="row">
-          <div class="column left">
+        <div class="column-row">
+          <div class="column column-left">
             <RecommendationForm @formSubmit="handleFormSubmit">
             </RecommendationForm>
           </div>
-          <div class="column right">
+          <div class="column column-right">
             <RecommendationList
               :recommendationResults="recommendationResults"
             ></RecommendationList>

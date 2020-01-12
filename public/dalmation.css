@@ -1,39 +1,29 @@
 html{
     height: 100%;
     background-color: #000;
+    color: #FFF;
+
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
     text-transform: lowercase;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body{
     height: 100%;
-    color: white;
 }
 
 .content-area{
     margin: 30px;
 }
 
-.row{
-    display: flex;
+.body-area{
+    margin: 30px;
 }
 
-.left{
-    width: 60%;
-}
-
-.right{
-    width: 40%;
-}
-
-.main-content{
-    font-family: 'Poppins', sans-serif;
-    color: #FFF;
-    letter-spacing: 3px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.content {
+.splashscreen-content {
     display: table;
     position: absolute;
     top: 0;
@@ -43,7 +33,7 @@ body{
   }
 
 .splashscreen-text-container{
-    margin: auto;
+    margin: 0px auto 20px;
     width: 50%;
     padding: 10px;
     text-align: center;
@@ -55,36 +45,58 @@ body{
 .site-title{
     font-size: 64px;
     font-weight: 700;
-    margin-top: 0px;
-    margin-bottom: 20px;
     line-height: 1;
+    margin: inherit;
 }
 
 .site-subtitle{
     font-weight: 300;
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin: inherit;
 }
 
 .action-button{
-    margin-top: 0px;
-    margin-bottom: 20px;
+    margin: inherit;
     padding: 15px 32px;
+    border-radius: 30px;
+
     background-color: #1DB954;
     color: #000;
-    font-size: 16px;
-    border-radius: 30px;
+    border: thick solid #1DB954;
+    
     font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
     text-transform: lowercase;
+
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    border: thick solid #1DB954;
 }
 
 .action-button:hover{
     background-color: #000;
     color: #1DB954;
     border: thick solid #1DB954;
+}
+
+.column-row{
+    display: flex;
+}
+
+.column-left{
+    width: 60%;
+}
+
+.column-right{
+    width: 40%;
+}
+
+.control-list{
+    padding-left: 0px;
+}
+
+.input-block{
+    width: 100%;
 }
 
 .controller-label{
@@ -96,12 +108,12 @@ body{
     width: 100%;
     display: flex;
     text-align: center;
-    margin-right: 5px
+    margin: auto 20px auto 0px
 }
 
 .end-label{
     display: flex;
-    margin-right: inherit
+    margin: inherit;
 }
 
 .input-slider{
@@ -112,11 +124,7 @@ body{
     display: flex;
     flex: 1;
     align-self: center;
-    margin-right: inherit;
-}
-
-.input-block{
-    width: 100%;
+    margin: inherit
 }
 
 .input-slider::-ms-track{
