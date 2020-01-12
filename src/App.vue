@@ -3,7 +3,7 @@
     <Splashscreen v-if="!authcode" @authenticate="authenticate"></Splashscreen>
     <div v-else class="app-area">
       <div v-if="authcode" class="header-bar">
-        <header>
+        <header @click="logout">
           <h1>Dalmation</h1>
         </header>
       </div>
@@ -76,6 +76,13 @@ export default {
     })
   },
   methods: {
+    logout() {
+      this.authcode = null
+      this.recommendationResults = []
+      this.seed = []
+      this.user = null
+      window.location = window.location.origin
+    },
     handleFormSubmit(formData) {
       console.log(formData);
       console.log(this.seed);
