@@ -114,7 +114,6 @@ body{
     padding-left: 0px; 
     height: 70vh;
     overflow-y: scroll;
-    margin-top: 0px;
 }
 
 .control-list::-webkit-scrollbar {
