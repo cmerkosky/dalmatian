@@ -112,7 +112,7 @@ body{
 .song-list {
     list-style: none;
     padding-left: 0px; 
-    height: 90vh;
+    height: 78vh;
     overflow-y: scroll; 
 }
 

@@ -129,7 +129,8 @@ export default {
             "uris": this.recommendationResults.map(result => "spotify:track:"+result.id)
           }
         })
-        .then(response2=>{
+        .then(()=>{
+          console.log(response)
           window.open(response.data.external_urls.spotify, "_blank")
         })
       })
