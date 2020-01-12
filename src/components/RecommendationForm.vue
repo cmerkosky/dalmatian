@@ -4,6 +4,7 @@
       <ul class=control-list>
         <li>
           <div class="input-block">
+            <input type="checkbox" name="danceability-checkbox" v-model="danceabilityChecked" class="checkbox"/>
             <label for="danceability" class="controller-label">Danceability</label>
             <div class="slider-box">
               <label for="danceability" class="end-label">Min</label>
@@ -15,6 +16,7 @@
 
         <li>
           <div class="input-block">
+            <input type="checkbox" name="energy-checkbox" v-model="energyChecked" class="checkbox"/>
             <label for="energy" class="controller-label">energy</label>
             <div class="slider-box">
               <label for="energy" class="end-label">Min</label>
@@ -26,6 +28,7 @@
 
         <li>
           <div class="input-block">
+            <input type="checkbox" name="instrumentalness-checkbox" v-model="instrumentalnessChecked" class="checkbox"/>
             <label for="instrumentalness" class="controller-label">instrumentalness</label>
             <div class="slider-box">
               <label for="instrumentalness" class="end-label">Min</label>
@@ -37,6 +40,7 @@
 
         <li>
           <div class="input-block">
+            <input type="checkbox" name="popularity-checkbox" v-model="popularityChecked" class="checkbox"/>
             <label for="popularity" class="controller-label">popularity</label>
             <div class="slider-box">
               <label for="popularity" class="end-label">Min</label>
@@ -48,6 +52,7 @@
 
         <li>
           <div class="input-block">
+            <input type="checkbox" name="valence-checkbox" v-model="valenceChecked" class="checkbox"/>
             <label for="valence" class="controller-label">happiness</label>
             <div class="slider-box">
               <label for="valence" class="end-label">Min</label>
@@ -73,18 +78,17 @@ export default {
       instrumentalness: 0.5,
       popularity: 50,
       valence: 0.5,
+      danceabilityChecked: true,
+      energyChecked: true,
+      instrumentalnessChecked: true,
+      popularityChecked: true,
+      valenceChecked: true
     };
   },
   methods: {
     handleSubmit(event) {
       event.preventDefault();
-      this.$emit("formSubmit", { 
-        target_danceability: this.danceability,
-        target_energy: this.energy,
-        target_instrumentalness: this.instrumentalness,
-        target_popularity: this.popularity,
-        target_valence: this.valence, 
-      });
+      this.$emit("formSubmit", this.buildFormData());
     },
     resetForm() {
       this.danceability = 0.5;
@@ -92,6 +96,30 @@ export default {
       this.instrumentalness = 0.5;
       this.popularity = 50;
       this.valence = 0.5;
+      this.danceabilityChecked = true,
+      this.energyChecked = true,
+      this.instrumentalnessChecked = true,
+      this.popularityChecked = true,
+      this.valenceChecked = true
+    },
+    buildFormData(){
+      let data = {}
+      if(this.danceabilityChecked){
+        data.target_danceability = this.danceability
+      }
+      if(this.energyChecked){
+        data.target_energy = this.energy
+      }
+      if(this.instrumentalnessChecked){
+        data.target_instrumentalness = this.instrumentalness
+      }
+      if(this.popularityChecked){
+        data.target_popularity = this.popularity
+      }
+      if(this.valenceChecked){
+        data.target_valence = this.valence
+      }
+      return data
     }
   }
 };
