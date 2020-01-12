@@ -86,16 +86,29 @@ body{
 }
 
 .column-left{
-    width: 60%;
+    width: 50%;
+    margin-right: 1rem;
 }
 
 .column-right{
-    width: 40%;
+    width: 50%;
+}
+
+.ui-section {
+    background: #111;
+    padding: 1rem;
 }
 
 .control-list{
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0px; 
+}
+
+.song-list {
+    list-style: none;
+    padding-left: 0px; 
+    height: 70vh;
+    overflow: scroll; 
 }
 
 .input-block{
