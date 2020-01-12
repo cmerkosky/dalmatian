@@ -108,6 +108,7 @@ body{
     list-style: none;
     padding-left: 0px; 
     height: 70vh;
+    overflow-y: scroll; 
 }
 
 .song-list {
