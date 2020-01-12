@@ -1,6 +1,6 @@
 <template>
   <div class="RecommendationForm">
-    <form @submit="handleSubmit">
+    <form @submit="handleSubmit" id="recommendation-form">
       <ul class=control-list>
         <li>
           <div class="input-block">
@@ -57,8 +57,9 @@
           </div>
         </li>
       </ul>
-      <button action="submit" class="action-button">Hit it</button>
     </form>
+    <button action="submit" form="recommendation-form" class="action-button" style="margin-right: 10px">Hit it</button>
+    <button @click='resetForm' class="action-button">Reset</button>
   </div>
 </template>
 
@@ -78,11 +79,11 @@ export default {
     handleSubmit(event) {
       event.preventDefault();
       this.$emit("formSubmit", { 
-        danceabilitiy: this.danceability,
-        energy: this.energy,
-        instrumentalness: this.instrumentalness,
-        popularity: this.popularity,
-        valence: this.valence, 
+        target_danceability: this.danceability,
+        target_energy: this.energy,
+        target_instrumentalness: this.instrumentalness,
+        target_popularity: this.popularity,
+        target_valence: this.valence, 
       });
     },
     resetForm() {

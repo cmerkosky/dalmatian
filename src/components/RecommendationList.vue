@@ -1,10 +1,23 @@
 <template>
   <div class="RecommendationList">
-    <ul>
+    <ul class="control-list">
       <li
         v-for="(recommendation, index) in recommendationResults"
-        v-bind:key="index"
-      >{{recommendation.name}} by {{recommendation.artists[0].name}}</li>
+        v-bind:key="index">
+        <div class="song-item">
+          <div class="song-artwork">
+              <img :src="recommendation.album.images[2].url" class="image"/>
+              <div class="play-button">
+                <i class="fa fa-play-circle"></i>
+              </div>
+          </div>
+          <div class="song-details">
+              <h3>{{recommendation.name}}</h3>
+              <p>{{recommendation.artists[0].name}}</p>
+          </div>
+          <a :href="'http://open.spotify.com/track/' + recommendation.id" target="_blank" rel="noopener noreferrer" class="hidden-link"/>
+        </div>
+      </li>
     </ul>
   </div>
 </template>
